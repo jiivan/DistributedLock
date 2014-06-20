@@ -28,8 +28,9 @@ setup(
     description='Python Distributed Lock with memcached support',
     long_description=open('README').read(),
     install_requires=[
-        "python-memcached >= 1.40",
+        ("python3-memcached" if sys.version_info >= (3, 0) else "python-memcached >= 1.40"),
     ],
+    use_2to3=True,
     tests_require=['pytest'],
     cmdclass = {'test': PyTest},
     
